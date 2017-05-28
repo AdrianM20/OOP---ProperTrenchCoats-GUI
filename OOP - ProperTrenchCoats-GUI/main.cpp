@@ -2,12 +2,14 @@
 #include <QtWidgets/QApplication>
 
 #include <Windows.h>
-#include "UI.h"
+#include "Controller.h"
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
+	QApplication a(argc, argv);
+
 	Repository repo{};
 
 	Coat c1{ "BEI52", 52, "Beige", 399.98, 3, "http://lp2.hm.com/hmprod?set=source[/environment/2016/8FZ_0205_037R.jpg],width[3811],height[4456],y[-11],type[FASHION_FRONT]&hmver=0&call=url[file:/product/main]" };
@@ -32,12 +34,10 @@ int main(int argc, char *argv[])
 	repo.addNoCheck(c10);
 
 	Controller ctrl{ repo };
-	UI ui{ ctrl };
-	ui.run();
+	/*UI ui{ ctrl };
+	ui.run();*/
 
-
-	QApplication a(argc, argv);
-	ProperTrenchCoatsGUI appgui;
+	ProperTrenchCoatsGUI appgui{ ctrl };
 	appgui.show();
 	return a.exec();
 
