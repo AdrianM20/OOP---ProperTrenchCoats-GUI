@@ -19,11 +19,11 @@ private:
 	Ui::ProperTrenchCoatsGUI ui;
 	Controller& ctrl;
 	void connectSignalsandSlots();
+	int getSelectedIndex();
 
 	void addButtonHandler();
 	void deleteButtonHandler();
 	void updateButtonHandler();
-	void cancelButtonHandler();
 };
 
 #endif // PROPERTRENCHCOATSGUI_H

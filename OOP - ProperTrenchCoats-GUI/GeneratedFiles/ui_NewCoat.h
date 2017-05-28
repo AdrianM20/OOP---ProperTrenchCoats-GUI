@@ -29,16 +29,16 @@ class Ui_NewCoat
 public:
     QVBoxLayout *verticalLayout;
     QFormLayout *formLayout;
-    QLabel *nameLabel;
+    QLabel *idLabel;
     QLabel *sizeLabel;
     QLabel *colourLabel;
     QLabel *priceLabel;
     QLabel *quantityLabel;
     QLabel *linkLabel;
-    QLineEdit *nameTextBox;
+    QLineEdit *idTextBox;
+    QLineEdit *sizeTextBox;
     QLineEdit *colourTextBox;
     QLineEdit *priceTextBox;
-    QLineEdit *sizeTextBox;
     QLineEdit *quantityTextBox;
     QLineEdit *linkTextBox;
     QHBoxLayout *horizontalLayout;
@@ -49,7 +49,7 @@ public:
     {
         if (NewCoat->objectName().isEmpty())
             NewCoat->setObjectName(QStringLiteral("NewCoat"));
-        NewCoat->resize(354, 232);
+        NewCoat->resize(354, 227);
         verticalLayout = new QVBoxLayout(NewCoat);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
@@ -57,13 +57,13 @@ public:
         formLayout = new QFormLayout();
         formLayout->setSpacing(6);
         formLayout->setObjectName(QStringLiteral("formLayout"));
-        nameLabel = new QLabel(NewCoat);
-        nameLabel->setObjectName(QStringLiteral("nameLabel"));
+        idLabel = new QLabel(NewCoat);
+        idLabel->setObjectName(QStringLiteral("idLabel"));
         QFont font;
         font.setPointSize(11);
-        nameLabel->setFont(font);
+        idLabel->setFont(font);
 
-        formLayout->setWidget(0, QFormLayout::LabelRole, nameLabel);
+        formLayout->setWidget(0, QFormLayout::LabelRole, idLabel);
 
         sizeLabel = new QLabel(NewCoat);
         sizeLabel->setObjectName(QStringLiteral("sizeLabel"));
@@ -95,11 +95,17 @@ public:
 
         formLayout->setWidget(5, QFormLayout::LabelRole, linkLabel);
 
-        nameTextBox = new QLineEdit(NewCoat);
-        nameTextBox->setObjectName(QStringLiteral("nameTextBox"));
-        nameTextBox->setFont(font);
+        idTextBox = new QLineEdit(NewCoat);
+        idTextBox->setObjectName(QStringLiteral("idTextBox"));
+        idTextBox->setFont(font);
 
-        formLayout->setWidget(0, QFormLayout::FieldRole, nameTextBox);
+        formLayout->setWidget(0, QFormLayout::FieldRole, idTextBox);
+
+        sizeTextBox = new QLineEdit(NewCoat);
+        sizeTextBox->setObjectName(QStringLiteral("sizeTextBox"));
+        sizeTextBox->setFont(font);
+
+        formLayout->setWidget(1, QFormLayout::FieldRole, sizeTextBox);
 
         colourTextBox = new QLineEdit(NewCoat);
         colourTextBox->setObjectName(QStringLiteral("colourTextBox"));
@@ -112,12 +118,6 @@ public:
         priceTextBox->setFont(font);
 
         formLayout->setWidget(3, QFormLayout::FieldRole, priceTextBox);
-
-        sizeTextBox = new QLineEdit(NewCoat);
-        sizeTextBox->setObjectName(QStringLiteral("sizeTextBox"));
-        sizeTextBox->setFont(font);
-
-        formLayout->setWidget(1, QFormLayout::FieldRole, sizeTextBox);
 
         quantityTextBox = new QLineEdit(NewCoat);
         quantityTextBox->setObjectName(QStringLiteral("quantityTextBox"));
@@ -152,6 +152,7 @@ public:
 
 
         retranslateUi(NewCoat);
+        QObject::connect(cancelButton, SIGNAL(clicked()), NewCoat, SLOT(close()));
 
         QMetaObject::connectSlotsByName(NewCoat);
     } // setupUi
@@ -159,7 +160,7 @@ public:
     void retranslateUi(QWidget *NewCoat)
     {
         NewCoat->setWindowTitle(QApplication::translate("NewCoat", "Add New Coat", 0));
-        nameLabel->setText(QApplication::translate("NewCoat", "ID:", 0));
+        idLabel->setText(QApplication::translate("NewCoat", "ID:", 0));
         sizeLabel->setText(QApplication::translate("NewCoat", "Size: ", 0));
         colourLabel->setText(QApplication::translate("NewCoat", "Colour:", 0));
         priceLabel->setText(QApplication::translate("NewCoat", "Price:", 0));

@@ -17,6 +17,7 @@ private:
 	Controller& mCont;
 	Ui::NewCoat ui;
 	QWidget* parent;
+
 public slots:
 
 	void add();

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>NewCoat</class>
- <widget class="QWidget" name="NewCoat">
+ <class>UpdateCoat</class>
+ <widget class="QWidget" name="UpdateCoat">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>354</width>
-    <height>227</height>
+    <width>353</width>
+    <height>221</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Add New Coat</string>
+   <string>UpdateCoat</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -28,66 +28,6 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="sizeLabel">
-       <property name="font">
-        <font>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Size: </string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="colourLabel">
-       <property name="font">
-        <font>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Colour:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="priceLabel">
-       <property name="font">
-        <font>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Price:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="quantityLabel">
-       <property name="font">
-        <font>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Quantity:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="linkLabel">
-       <property name="font">
-        <font>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Link:</string>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="1">
       <widget class="QLineEdit" name="idTextBox">
        <property name="font">
@@ -97,44 +37,75 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="sizeTextBox">
+     <item row="1" column="0" colspan="2">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="newpriceLabel">
        <property name="font">
         <font>
          <pointsize>11</pointsize>
         </font>
+       </property>
+       <property name="text">
+        <string>New Price:</string>
        </property>
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QLineEdit" name="colourTextBox">
+      <widget class="QLineEdit" name="newpriceTextBox">
        <property name="font">
         <font>
          <pointsize>11</pointsize>
         </font>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="newquantityLabel">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>New Quantity:</string>
        </property>
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QLineEdit" name="priceTextBox">
+      <widget class="QLineEdit" name="newquantityTextBox">
        <property name="font">
         <font>
          <pointsize>11</pointsize>
         </font>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="newlinkLabel">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>New Link:</string>
        </property>
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="QLineEdit" name="quantityTextBox">
-       <property name="font">
-        <font>
-         <pointsize>11</pointsize>
-        </font>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="1">
-      <widget class="QLineEdit" name="linkTextBox">
+      <widget class="QLineEdit" name="newlinkTextBox">
        <property name="font">
         <font>
          <pointsize>11</pointsize>
@@ -147,16 +118,16 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="addButton">
+      <widget class="QPushButton" name="updateButton">
        <property name="text">
-        <string>Add Coat</string>
+        <string>Update Coat</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="cancelButton">
+      <widget class="QPushButton" name="closeButton">
        <property name="text">
-        <string>Cancel</string>
+        <string>Close</string>
        </property>
       </widget>
      </item>
@@ -168,18 +139,18 @@
  <resources/>
  <connections>
   <connection>
-   <sender>cancelButton</sender>
+   <sender>closeButton</sender>
    <signal>clicked()</signal>
-   <receiver>NewCoat</receiver>
+   <receiver>UpdateCoat</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>261</x>
-     <y>206</y>
+     <y>199</y>
     </hint>
     <hint type="destinationlabel">
      <x>176</x>
-     <y>115</y>
+     <y>110</y>
     </hint>
    </hints>
   </connection>

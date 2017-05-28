@@ -33,7 +33,7 @@ public:
     QPushButton *updateButton;
     QVBoxLayout *verticalLayout_2;
     QPushButton *deleteButton;
-    QPushButton *cancelButton;
+    QPushButton *closeButton;
 
     void setupUi(QWidget *ProperTrenchCoatsGUI)
     {
@@ -92,11 +92,11 @@ public:
 
         verticalLayout_2->addWidget(deleteButton);
 
-        cancelButton = new QPushButton(ProperTrenchCoatsGUI);
-        cancelButton->setObjectName(QStringLiteral("cancelButton"));
-        cancelButton->setMinimumSize(QSize(100, 40));
+        closeButton = new QPushButton(ProperTrenchCoatsGUI);
+        closeButton->setObjectName(QStringLiteral("closeButton"));
+        closeButton->setMinimumSize(QSize(100, 40));
 
-        verticalLayout_2->addWidget(cancelButton);
+        verticalLayout_2->addWidget(closeButton);
 
 
         horizontalLayout->addLayout(verticalLayout_2);
@@ -106,6 +106,7 @@ public:
 
 
         retranslateUi(ProperTrenchCoatsGUI);
+        QObject::connect(closeButton, SIGNAL(clicked()), ProperTrenchCoatsGUI, SLOT(close()));
 
         QMetaObject::connectSlotsByName(ProperTrenchCoatsGUI);
     } // setupUi
@@ -116,7 +117,7 @@ public:
         addButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Add Coat", 0));
         updateButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Update Coat", 0));
         deleteButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Delete Coat", 0));
-        cancelButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Cancel", 0));
+        closeButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Close", 0));
     } // retranslateUi
 
 };
