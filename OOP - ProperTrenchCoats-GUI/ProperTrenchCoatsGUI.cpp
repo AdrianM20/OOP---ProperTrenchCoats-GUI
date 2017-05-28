@@ -1,5 +1,6 @@
 #include "ProperTrenchCoatsGUI.h"
 #include <vector>
+#include "NewCoat.h"
 
 using namespace std;
 
@@ -34,4 +35,6 @@ void ProperTrenchCoatsGUI::connectSignalsandSlots()
 
 void ProperTrenchCoatsGUI::addButtonHandler()
 {
+	NewCoat *coatWindow = new NewCoat{ this->ctrl, this };
+	coatWindow->show();
 }

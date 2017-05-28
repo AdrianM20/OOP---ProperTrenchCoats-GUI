@@ -25,8 +25,8 @@ QT_BEGIN_NAMESPACE
 class Ui_ProperTrenchCoatsGUI
 {
 public:
+    QVBoxLayout *verticalLayout_3;
     QListWidget *coatsList;
-    QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout;
     QPushButton *addButton;
@@ -45,24 +45,25 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(ProperTrenchCoatsGUI->sizePolicy().hasHeightForWidth());
         ProperTrenchCoatsGUI->setSizePolicy(sizePolicy);
+        verticalLayout_3 = new QVBoxLayout(ProperTrenchCoatsGUI);
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         coatsList = new QListWidget(ProperTrenchCoatsGUI);
         coatsList->setObjectName(QStringLiteral("coatsList"));
-        coatsList->setGeometry(QRect(10, 10, 331, 401));
         QFont font;
         font.setPointSize(12);
         coatsList->setFont(font);
-        horizontalLayoutWidget = new QWidget(ProperTrenchCoatsGUI);
-        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(10, 420, 331, 101));
-        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+
+        verticalLayout_3->addWidget(coatsList);
+
+        horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(6);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        addButton = new QPushButton(horizontalLayoutWidget);
+        addButton = new QPushButton(ProperTrenchCoatsGUI);
         addButton->setObjectName(QStringLiteral("addButton"));
         QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Fixed);
         sizePolicy1.setHorizontalStretch(0);
@@ -73,7 +74,7 @@ public:
 
         verticalLayout->addWidget(addButton);
 
-        updateButton = new QPushButton(horizontalLayoutWidget);
+        updateButton = new QPushButton(ProperTrenchCoatsGUI);
         updateButton->setObjectName(QStringLiteral("updateButton"));
         updateButton->setMinimumSize(QSize(100, 40));
 
@@ -85,13 +86,13 @@ public:
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        deleteButton = new QPushButton(horizontalLayoutWidget);
+        deleteButton = new QPushButton(ProperTrenchCoatsGUI);
         deleteButton->setObjectName(QStringLiteral("deleteButton"));
         deleteButton->setMinimumSize(QSize(100, 40));
 
         verticalLayout_2->addWidget(deleteButton);
 
-        cancelButton = new QPushButton(horizontalLayoutWidget);
+        cancelButton = new QPushButton(ProperTrenchCoatsGUI);
         cancelButton->setObjectName(QStringLiteral("cancelButton"));
         cancelButton->setMinimumSize(QSize(100, 40));
 
@@ -99,6 +100,9 @@ public:
 
 
         horizontalLayout->addLayout(verticalLayout_2);
+
+
+        verticalLayout_3->addLayout(horizontalLayout);
 
 
         retranslateUi(ProperTrenchCoatsGUI);
