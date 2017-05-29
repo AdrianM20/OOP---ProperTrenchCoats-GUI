@@ -25,8 +25,33 @@ void ProperTrenchCoatsGUI::populateList()
 	vector<Coat> coats = this->ctrl.getRepo().getCoats();
 	for (auto c : coats) {
 		string coatString = c.getID() + " | " + to_string(c.getSize()) + " | " + c.getColour() + " | " + to_string(c.getPrice()) + " | " + to_string(c.getQuantity());
+
 		this->ui.coatsList->addItem(QString::fromStdString(coatString));
 	}
+}
+
+void ProperTrenchCoatsGUI::colourPopulateList()
+{
+	this->ui.coatsList->clear();
+	vector<Coat> coats = this->ctrl.getRepo().getCoats();
+	for (auto c : coats) {
+		string coatString = c.getID() + " | " + to_string(c.getSize()) + " | " + c.getColour() + " | " + to_string(c.getPrice()) + " | " + to_string(c.getQuantity());
+		QListWidgetItem* item = new QListWidgetItem(QString::fromStdString(coatString));
+		if (c.getQuantity() == 0)
+			item->setBackgroundColor(QColor("Red"));
+		this->ui.coatsList->addItem(item);
+	}
+}
+
+void ProperTrenchCoatsGUI::totalStock()
+{
+	this->ui.stockTotalTextBox->clear();
+	vector<Coat> coats = this->ctrl.getRepo().getCoats();
+	int stock = 0;
+	for (auto c : coats)
+		stock += c.getQuantity();
+	string str_stock(to_string(stock));
+	this->ui.stockTotalTextBox->insert(QString::fromStdString(str_stock));
 }
 
 void ProperTrenchCoatsGUI::connectSignalsandSlots()
@@ -39,6 +64,12 @@ void ProperTrenchCoatsGUI::connectSignalsandSlots()
 
 	// connect update coat button
 	connect(this->ui.updateButton, &QPushButton::clicked, this, &ProperTrenchCoatsGUI::updateButtonHandler);
+
+	// connect redcolour button
+	connect(this->ui.colourButton, &QPushButton::clicked, this, &ProperTrenchCoatsGUI::colourPopulateList);
+
+	// connect stock count button
+	connect(this->ui.stockTotalButton, &QPushButton::clicked, this, &ProperTrenchCoatsGUI::totalStock);
 }
 
 int ProperTrenchCoatsGUI::getSelectedIndex()

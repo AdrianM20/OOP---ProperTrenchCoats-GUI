@@ -14,6 +14,8 @@ public:
 	ProperTrenchCoatsGUI(Controller& c, QWidget *parent = 0);
 	~ProperTrenchCoatsGUI();
 	void populateList();
+	void colourPopulateList();
+	void totalStock();
 
 private:
 	Ui::ProperTrenchCoatsGUI ui;

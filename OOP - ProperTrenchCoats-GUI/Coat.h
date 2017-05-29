@@ -36,4 +36,7 @@ public:
 
 	// oveload of the == operator
 	bool Coat::operator==(const Coat& other) const;
+
+	friend std::istream& operator>>(std::istream& is, Coat& c);
+	friend std::ostream& operator<<(std::ostream& os, Coat& c);
 };

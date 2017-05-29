@@ -1,6 +1,11 @@
 #include "Coat.h"
 #include <Windows.h>
 #include <shellapi.h>
+#include <iostream>
+#include <vector>
+#include <Utils.h>
+
+using namespace std;
 
 Coat::Coat() : ID(""), size(0), colour(""), price(0), quantity(0), link("") {}
 
@@ -34,4 +39,29 @@ bool Coat::operator==(const Coat & other) const
 	if (this->link != other.link)
 		return false;
 	return true;
+}
+
+istream & operator >> (std::istream & is, Coat & c)
+{
+	string line;
+	getline(is, line);
+
+	vector<string> tokens = tokenize(line, ',');
+	if (tokens.size() != 6)
+		return is;
+
+	c.ID = tokens[0];
+	c.size = stoi(tokens[1]);
+	c.colour = tokens[2];
+	c.price = stod(tokens[3]);
+	c.quantity = stoi(tokens[4]);
+	c.link = tokens[5];
+
+	return is;
+}
+
+ostream & operator<<(std::ostream & os, Coat & c)
+{
+	os << c.ID << "," << to_string(c.size) << "," << c.colour << "," << to_string(c.price) << "," << to_string(c.quantity) << "," << c.link << "\n";
+	return os;
 }

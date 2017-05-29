@@ -1,9 +1,17 @@
 #include "Repository.h"
 #include <string>
 #include <sstream>
+#include <fstream>
 #include "Validators.h"
+#include <exception>
 
 using namespace std;
+
+Repository::Repository(const std::string& filename)
+{
+	this->filename = filename;
+	this->readFromFile();
+}
 
 void Repository::addNoCheck(const Coat& c)
 {
@@ -14,6 +22,7 @@ void Repository::addCoat(const Coat & c)
 {
 	coatValidator(c);
 	this->coats.push_back(c);
+	this->writeToFile();
 }
 
 void Repository::removeCoatByID(const std::string & ID)
@@ -32,6 +41,7 @@ void Repository::removeCoatByID(const std::string & ID)
 			this->coats.erase(this->coats.begin() + i);
 			break;
 		}
+	this->writeToFile();
 }
 
 void Repository::sellCoatByID(const std::string & ID)
@@ -46,6 +56,7 @@ void Repository::sellCoatByID(const std::string & ID)
 		}
 	}
 	this->coats.insert(this->coats.begin() + i, newCoat);
+	this->writeToFile();
 }
 
 void Repository::updateCoat(const std::string & ID, const Coat & c)
@@ -61,6 +72,7 @@ void Repository::updateCoat(const std::string & ID, const Coat & c)
 			break;
 		}
 	this->coats.insert(this->coats.begin() + i, c);
+	this->writeToFile();
 }
 
 Coat Repository::findByID(const std::string& ID)
@@ -82,4 +94,31 @@ std::vector<Coat> Repository::getCoatsbySize(const int & size)
 			coats.push_back(c);
 	}
 	return coats;
+}
+
+void Repository::readFromFile()
+{
+	ifstream file(this->filename);
+
+	if (!file.is_open())
+		throw exception("The file could not be opened!");
+
+	Coat c;
+	while (file >> c)
+		this->coats.push_back(c);
+
+	file.close();
+
+}
+
+void Repository::writeToFile()
+{
+	ofstream file(this->filename);
+	if (!file.is_open())
+		throw exception("File could not be opened!");
+
+	for (auto c : this->coats)
+		file << c;
+
+	file.close();
 }

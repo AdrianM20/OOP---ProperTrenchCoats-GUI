@@ -83,6 +83,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_UpdateCoat.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="myclass.qrc">
@@ -138,8 +141,16 @@
     <ClInclude Include="GeneratedFiles\ui_UpdateCoat.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="OOP - ProperTrenchCoats-GUI.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Coats.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

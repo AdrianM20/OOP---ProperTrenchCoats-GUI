@@ -15,6 +15,7 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
@@ -27,6 +28,10 @@ class Ui_ProperTrenchCoatsGUI
 public:
     QVBoxLayout *verticalLayout_3;
     QListWidget *coatsList;
+    QPushButton *colourButton;
+    QHBoxLayout *horizontalLayout_2;
+    QPushButton *stockTotalButton;
+    QLineEdit *stockTotalTextBox;
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout;
     QPushButton *addButton;
@@ -39,7 +44,7 @@ public:
     {
         if (ProperTrenchCoatsGUI->objectName().isEmpty())
             ProperTrenchCoatsGUI->setObjectName(QStringLiteral("ProperTrenchCoatsGUI"));
-        ProperTrenchCoatsGUI->resize(354, 529);
+        ProperTrenchCoatsGUI->resize(355, 563);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -57,6 +62,34 @@ public:
 
         verticalLayout_3->addWidget(coatsList);
 
+        colourButton = new QPushButton(ProperTrenchCoatsGUI);
+        colourButton->setObjectName(QStringLiteral("colourButton"));
+        QFont font1;
+        font1.setPointSize(10);
+        colourButton->setFont(font1);
+
+        verticalLayout_3->addWidget(colourButton);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        stockTotalButton = new QPushButton(ProperTrenchCoatsGUI);
+        stockTotalButton->setObjectName(QStringLiteral("stockTotalButton"));
+        stockTotalButton->setMinimumSize(QSize(0, 0));
+        stockTotalButton->setFont(font1);
+
+        horizontalLayout_2->addWidget(stockTotalButton);
+
+        stockTotalTextBox = new QLineEdit(ProperTrenchCoatsGUI);
+        stockTotalTextBox->setObjectName(QStringLiteral("stockTotalTextBox"));
+        stockTotalTextBox->setEnabled(false);
+        stockTotalTextBox->setFont(font1);
+
+        horizontalLayout_2->addWidget(stockTotalTextBox);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_2);
+
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
@@ -71,12 +104,14 @@ public:
         sizePolicy1.setHeightForWidth(addButton->sizePolicy().hasHeightForWidth());
         addButton->setSizePolicy(sizePolicy1);
         addButton->setMinimumSize(QSize(100, 40));
+        addButton->setFont(font);
 
         verticalLayout->addWidget(addButton);
 
         updateButton = new QPushButton(ProperTrenchCoatsGUI);
         updateButton->setObjectName(QStringLiteral("updateButton"));
         updateButton->setMinimumSize(QSize(100, 40));
+        updateButton->setFont(font);
 
         verticalLayout->addWidget(updateButton);
 
@@ -89,12 +124,14 @@ public:
         deleteButton = new QPushButton(ProperTrenchCoatsGUI);
         deleteButton->setObjectName(QStringLiteral("deleteButton"));
         deleteButton->setMinimumSize(QSize(100, 40));
+        deleteButton->setFont(font);
 
         verticalLayout_2->addWidget(deleteButton);
 
         closeButton = new QPushButton(ProperTrenchCoatsGUI);
         closeButton->setObjectName(QStringLiteral("closeButton"));
         closeButton->setMinimumSize(QSize(100, 40));
+        closeButton->setFont(font);
 
         verticalLayout_2->addWidget(closeButton);
 
@@ -114,6 +151,8 @@ public:
     void retranslateUi(QWidget *ProperTrenchCoatsGUI)
     {
         ProperTrenchCoatsGUI->setWindowTitle(QApplication::translate("ProperTrenchCoatsGUI", "Proper Trench Coats", 0));
+        colourButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Highlight out of stock coats", 0));
+        stockTotalButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Stock Total", 0));
         addButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Add Coat", 0));
         updateButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Update Coat", 0));
         deleteButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Delete Coat", 0));

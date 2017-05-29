@@ -6,13 +6,14 @@ class Repository
 {
 private:
 	std::vector<Coat> coats;
+	std::string filename;
 
 public:
 	/*
 		Default constructor.
 		Initializes an repository object
 	*/
-	Repository() {}
+	Repository(const std::string& filename);
 
 	void addNoCheck(const Coat&c);
 
@@ -55,4 +56,8 @@ public:
 
 	// Returns all coats
 	std::vector<Coat> getCoats() const { return coats; }
+
+private:
+	void readFromFile();
+	void writeToFile();
 };
