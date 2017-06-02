@@ -21,7 +21,7 @@ Coat::Coat(const std::string & ID, const int & size, const std::string & colour,
 
 void Coat::show()
 {
-	// ShellExecute(NULL, NULL, "chrome.exe", this->getLink().c_str(), NULL, SW_SHOWMAXIMIZED);
+	ShellExecuteA(NULL, NULL, "chrome.exe", this->getLink().c_str(), NULL, SW_SHOWMAXIMIZED);
 }
 
 bool Coat::operator==(const Coat & other) const

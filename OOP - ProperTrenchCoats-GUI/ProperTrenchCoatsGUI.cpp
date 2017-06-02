@@ -1,9 +1,12 @@
 #include "ProperTrenchCoatsGUI.h"
 #include <vector>
+#include <sstream>
+#include <iomanip>
 #include "NewCoat.h"
 #include "UpdateCoat.h"
 #include <qmessagebox.h>
 #include <qdebug.h>
+
 
 using namespace std;
 
@@ -24,7 +27,11 @@ void ProperTrenchCoatsGUI::populateList()
 	this->ui.coatsList->clear();
 	vector<Coat> coats = this->ctrl.getRepo().getCoats();
 	for (auto c : coats) {
-		string coatString = c.getID() + " | " + to_string(c.getSize()) + " | " + c.getColour() + " | " + to_string(c.getPrice()) + " | " + to_string(c.getQuantity());
+		double price = c.getPrice();
+		stringstream stream;
+		stream << fixed << setprecision(2) << price;
+		string str_price = stream.str();
+		string coatString = c.getID() + " | " + to_string(c.getSize()) + " | " + c.getColour() + " | " + str_price + " | " + to_string(c.getQuantity());
 
 		this->ui.coatsList->addItem(QString::fromStdString(coatString));
 	}
@@ -35,7 +42,11 @@ void ProperTrenchCoatsGUI::colourPopulateList()
 	this->ui.coatsList->clear();
 	vector<Coat> coats = this->ctrl.getRepo().getCoats();
 	for (auto c : coats) {
-		string coatString = c.getID() + " | " + to_string(c.getSize()) + " | " + c.getColour() + " | " + to_string(c.getPrice()) + " | " + to_string(c.getQuantity());
+		double price = c.getPrice();
+		stringstream stream;
+		stream << fixed << setprecision(2) << price;
+		string str_price = stream.str();
+		string coatString = c.getID() + " | " + to_string(c.getSize()) + " | " + c.getColour() + " | " + str_price + " | " + to_string(c.getQuantity());
 		QListWidgetItem* item = new QListWidgetItem(QString::fromStdString(coatString));
 		if (c.getQuantity() == 0)
 			item->setBackgroundColor(QColor("Red"));
