@@ -9,3 +9,4 @@ CAM46,46,Camel,599.980000,2,http://lp2.hm.com/hmprod?set=source[/environment/201
 CAM50,50,Camel,579.980000,0,http://lp2.hm.com/hmprod?set=source[/environment/2016/7YM_0545_049R.jpg]&call=url[file:/product/main]
 GRY38,38,Light-grey,499.980000,4,http://lp2.hm.com/hmprod?set=source[/environment/2017/8GZ_0311_003R.jpg]&call=url[file:/product/main]
 RED46,46,Red,398.980000,4,https://s-media-cache-ak0.pinimg.com/736x/7e/fc/79/7efc7948a499e5f0b404ee78deadcbc4.jpg
+BLK48,48,Black,419.990000,4,http://google.com

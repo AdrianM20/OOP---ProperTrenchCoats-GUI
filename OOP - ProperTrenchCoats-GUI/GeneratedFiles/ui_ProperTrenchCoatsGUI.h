@@ -18,6 +18,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -27,6 +28,9 @@ class Ui_ProperTrenchCoatsGUI
 {
 public:
     QVBoxLayout *verticalLayout_3;
+    QHBoxLayout *horizontalLayout_3;
+    QRadioButton *sortedButton;
+    QRadioButton *shuffledButton;
     QListWidget *coatsList;
     QPushButton *colourButton;
     QHBoxLayout *horizontalLayout_2;
@@ -54,19 +58,37 @@ public:
         verticalLayout_3->setSpacing(6);
         verticalLayout_3->setContentsMargins(11, 11, 11, 11);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        sortedButton = new QRadioButton(ProperTrenchCoatsGUI);
+        sortedButton->setObjectName(QStringLiteral("sortedButton"));
+        QFont font;
+        font.setPointSize(10);
+        sortedButton->setFont(font);
+
+        horizontalLayout_3->addWidget(sortedButton);
+
+        shuffledButton = new QRadioButton(ProperTrenchCoatsGUI);
+        shuffledButton->setObjectName(QStringLiteral("shuffledButton"));
+        shuffledButton->setFont(font);
+
+        horizontalLayout_3->addWidget(shuffledButton);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_3);
+
         coatsList = new QListWidget(ProperTrenchCoatsGUI);
         coatsList->setObjectName(QStringLiteral("coatsList"));
-        QFont font;
-        font.setPointSize(12);
-        coatsList->setFont(font);
+        QFont font1;
+        font1.setPointSize(12);
+        coatsList->setFont(font1);
 
         verticalLayout_3->addWidget(coatsList);
 
         colourButton = new QPushButton(ProperTrenchCoatsGUI);
         colourButton->setObjectName(QStringLiteral("colourButton"));
-        QFont font1;
-        font1.setPointSize(10);
-        colourButton->setFont(font1);
+        colourButton->setFont(font);
 
         verticalLayout_3->addWidget(colourButton);
 
@@ -76,14 +98,14 @@ public:
         stockTotalButton = new QPushButton(ProperTrenchCoatsGUI);
         stockTotalButton->setObjectName(QStringLiteral("stockTotalButton"));
         stockTotalButton->setMinimumSize(QSize(0, 0));
-        stockTotalButton->setFont(font1);
+        stockTotalButton->setFont(font);
 
         horizontalLayout_2->addWidget(stockTotalButton);
 
         stockTotalTextBox = new QLineEdit(ProperTrenchCoatsGUI);
         stockTotalTextBox->setObjectName(QStringLiteral("stockTotalTextBox"));
         stockTotalTextBox->setEnabled(false);
-        stockTotalTextBox->setFont(font1);
+        stockTotalTextBox->setFont(font);
 
         horizontalLayout_2->addWidget(stockTotalTextBox);
 
@@ -104,14 +126,14 @@ public:
         sizePolicy1.setHeightForWidth(addButton->sizePolicy().hasHeightForWidth());
         addButton->setSizePolicy(sizePolicy1);
         addButton->setMinimumSize(QSize(100, 40));
-        addButton->setFont(font);
+        addButton->setFont(font1);
 
         verticalLayout->addWidget(addButton);
 
         updateButton = new QPushButton(ProperTrenchCoatsGUI);
         updateButton->setObjectName(QStringLiteral("updateButton"));
         updateButton->setMinimumSize(QSize(100, 40));
-        updateButton->setFont(font);
+        updateButton->setFont(font1);
 
         verticalLayout->addWidget(updateButton);
 
@@ -124,14 +146,14 @@ public:
         deleteButton = new QPushButton(ProperTrenchCoatsGUI);
         deleteButton->setObjectName(QStringLiteral("deleteButton"));
         deleteButton->setMinimumSize(QSize(100, 40));
-        deleteButton->setFont(font);
+        deleteButton->setFont(font1);
 
         verticalLayout_2->addWidget(deleteButton);
 
         closeButton = new QPushButton(ProperTrenchCoatsGUI);
         closeButton->setObjectName(QStringLiteral("closeButton"));
         closeButton->setMinimumSize(QSize(100, 40));
-        closeButton->setFont(font);
+        closeButton->setFont(font1);
 
         verticalLayout_2->addWidget(closeButton);
 
@@ -151,6 +173,8 @@ public:
     void retranslateUi(QWidget *ProperTrenchCoatsGUI)
     {
         ProperTrenchCoatsGUI->setWindowTitle(QApplication::translate("ProperTrenchCoatsGUI", "Proper Trench Coats", 0));
+        sortedButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Sorted", 0));
+        shuffledButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Shuffled", 0));
         colourButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Highlight out of stock coats", 0));
         stockTotalButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Stock Total", 0));
         addButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Add Coat", 0));

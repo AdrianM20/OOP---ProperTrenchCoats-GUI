@@ -20,6 +20,8 @@ public:
 private:
 	Ui::ProperTrenchCoatsGUI ui;
 	Controller& ctrl;
+	QWidget* parent;
+
 	void connectSignalsandSlots();
 	int getSelectedIndex();
 

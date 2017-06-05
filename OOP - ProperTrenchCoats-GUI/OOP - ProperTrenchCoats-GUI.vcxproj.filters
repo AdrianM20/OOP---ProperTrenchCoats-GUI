@@ -62,12 +62,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_ProperTrenchCoatsGUI.cpp">
-      <Filter>Generated Files\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_ProperTrenchCoatsGUI.cpp">
-      <Filter>Generated Files\Release</Filter>
-    </ClCompile>
     <ClCompile Include="UI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -110,6 +104,27 @@
     <ClCompile Include="Validators.cpp">
       <Filter>Source Files\domain</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ProperTrenchCoatsGUI.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ProperTrenchCoatsGUI.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="CoatValidator.cpp">
+      <Filter>Source Files\domain</Filter>
+    </ClCompile>
+    <ClCompile Include="RepositoryExceptions.cpp">
+      <Filter>Source Files\repository</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_TrenchCoatStore.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_TrenchCoatStore.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="TrenchCoatStore.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="myclass.qrc">
@@ -127,10 +142,16 @@
     <CustomBuild Include="NewCoat.h">
       <Filter>Header Files\GUI</Filter>
     </CustomBuild>
+    <CustomBuild Include="UpdateCoat.h">
+      <Filter>Header Files\GUI</Filter>
+    </CustomBuild>
     <CustomBuild Include="ProperTrenchCoatsGUI.h">
       <Filter>Header Files\GUI</Filter>
     </CustomBuild>
-    <CustomBuild Include="UpdateCoat.h">
+    <CustomBuild Include="TrenchCoatStore.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TrenchCoatStore.h">
       <Filter>Header Files\GUI</Filter>
     </CustomBuild>
   </ItemGroup>
@@ -167,6 +188,15 @@
     </ClInclude>
     <ClInclude Include="ShoppingCart.h">
       <Filter>Header Files\controller</Filter>
+    </ClInclude>
+    <ClInclude Include="CoatValidator.h">
+      <Filter>Header Files\domain</Filter>
+    </ClInclude>
+    <ClInclude Include="RepositoryExceptions.h">
+      <Filter>Header Files\repository</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_TrenchCoatStore.h">
+      <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

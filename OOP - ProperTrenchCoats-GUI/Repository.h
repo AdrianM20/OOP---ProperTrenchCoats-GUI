@@ -1,19 +1,22 @@
 #pragma once
 #include "Coat.h"
 #include <vector>
+#include "CoatValidator.h"
+#include "RepositoryExceptions.h"
 
 class Repository
 {
 private:
 	std::vector<Coat> coats;
 	std::string filename;
+	CoatValidator validator;
 
 public:
 	/*
 		Default constructor.
 		Initializes an repository object
 	*/
-	Repository(const std::string& filename);
+	Repository(const std::string& filename, CoatValidator cv);
 
 	void addNoCheck(const Coat&c);
 

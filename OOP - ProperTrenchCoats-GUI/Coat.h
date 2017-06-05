@@ -31,6 +31,9 @@ public:
 	// getter for link
 	std::string getLink() const { return link; }
 
+	// setter for quantity
+	void addQuantity(const int& value);
+
 	// shows the current coat: link is opened in browser
 	void show();
 

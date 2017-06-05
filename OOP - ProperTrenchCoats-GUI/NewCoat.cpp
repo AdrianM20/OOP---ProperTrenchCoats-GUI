@@ -1,6 +1,7 @@
 #include "NewCoat.h"
 #include "ProperTrenchCoatsGUI.h"
 #include <qmessagebox.h>
+#include <sstream>
 
 NewCoat::NewCoat(Controller& cont, QWidget *mParent)
 	: parent(mParent), mCont(cont)
@@ -23,6 +24,15 @@ void NewCoat::add()
 	}
 	catch (const char* msg) {
 		QMessageBox::warning(this, "Add Error", msg, QMessageBox::Close);
+	}
+	catch (CoatException ce) {
+		std::vector<std::string> errors = ce.getErrors();
+		std::stringstream ss;
+		for (auto er : errors) {
+			ss << er << "\n";
+		}
+		std::string err_msg = ss.str();
+		QMessageBox::warning(this, "Add Error", QString::fromStdString(err_msg), QMessageBox::Close);
 	}
 	ProperTrenchCoatsGUI* mParent = dynamic_cast<ProperTrenchCoatsGUI*>(this->parent);
 

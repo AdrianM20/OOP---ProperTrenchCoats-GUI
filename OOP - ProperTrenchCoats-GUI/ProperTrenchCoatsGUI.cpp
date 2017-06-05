@@ -4,14 +4,14 @@
 #include <iomanip>
 #include "NewCoat.h"
 #include "UpdateCoat.h"
-#include <qmessagebox.h>
-#include <qdebug.h>
+#include <QMessageBox>
+#include <QDebug>
 
 
 using namespace std;
 
-ProperTrenchCoatsGUI::ProperTrenchCoatsGUI(Controller& c, QWidget *parent)
-	: QWidget(parent), ctrl {c}
+ProperTrenchCoatsGUI::ProperTrenchCoatsGUI(Controller& c, QWidget *mParent)
+	: parent(mParent), ctrl {c}
 {
 	this->ui.setupUi(this);
 	this->populateList();
@@ -26,6 +26,10 @@ void ProperTrenchCoatsGUI::populateList()
 {
 	this->ui.coatsList->clear();
 	vector<Coat> coats = this->ctrl.getRepo().getCoats();
+	if (this->ui.sortedButton->isChecked())
+		std::sort(coats.begin(), coats.end(), [](Coat c1, Coat c2) { return c1.getPrice() < c2.getPrice(); });
+	if (this->ui.shuffledButton->isChecked())
+		std::random_shuffle(coats.begin(), coats.end());
 	for (auto c : coats) {
 		double price = c.getPrice();
 		stringstream stream;
@@ -81,6 +85,10 @@ void ProperTrenchCoatsGUI::connectSignalsandSlots()
 
 	// connect stock count button
 	connect(this->ui.stockTotalButton, &QPushButton::clicked, this, &ProperTrenchCoatsGUI::totalStock);
+
+	// connect radio buttons to populate list
+	connect(this->ui.sortedButton, &QRadioButton::toggled, this, &ProperTrenchCoatsGUI::populateList);
+	connect(this->ui.shuffledButton, &QRadioButton::toggled, this, &ProperTrenchCoatsGUI::populateList);
 }
 
 int ProperTrenchCoatsGUI::getSelectedIndex()

@@ -7,9 +7,10 @@
 
 using namespace std;
 
-Repository::Repository(const std::string& filename)
+Repository::Repository(const std::string& filename,CoatValidator cv)
 {
 	this->filename = filename;
+	this->validator = cv;
 	this->readFromFile();
 }
 
@@ -20,7 +21,9 @@ void Repository::addNoCheck(const Coat& c)
 
 void Repository::addCoat(const Coat & c)
 {
-	coatValidator(c);
+	if (this->findByID(c.getID()).getID() != "")
+		throw DuplicateCoatException();
+	this->validator.validate(c);
 	this->coats.push_back(c);
 	this->writeToFile();
 }
@@ -64,7 +67,7 @@ void Repository::updateCoat(const std::string & ID, const Coat & c)
 	Coat checkCoat = findByID(ID);
 	if (checkCoat.getID().length() == 0)
 		throw "Coat does not exist. No data was updated.";
-	coatValidator(c);
+	this->validator.validate(c);
 	int i;
 	for (i = 0; i < this->coats.size(); i++)
 		if (this->coats[i] == checkCoat) {
@@ -101,7 +104,7 @@ void Repository::readFromFile()
 	ifstream file(this->filename);
 
 	if (!file.is_open())
-		throw exception("The file could not be opened!");
+		throw FileException("The file could not be opened!");
 
 	Coat c;
 	while (file >> c)
@@ -115,7 +118,7 @@ void Repository::writeToFile()
 {
 	ofstream file(this->filename);
 	if (!file.is_open())
-		throw exception("File could not be opened!");
+		throw FileException("File could not be opened!");
 
 	for (auto c : this->coats)
 		file << c;

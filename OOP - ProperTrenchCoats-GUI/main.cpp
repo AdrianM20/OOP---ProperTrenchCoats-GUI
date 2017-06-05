@@ -3,6 +3,7 @@
 
 #include <Windows.h>
 #include "Controller.h"
+#include "TrenchCoatStore.h"
 
 using namespace std;
 
@@ -10,7 +11,7 @@ int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
 
-	Repository repo{"Coats.txt"};
+	Repository repo{ "Coats.txt", CoatValidator{} };
 
 	/*Coat c1{ "BEI52", 52, "Beige", 399.98, 3, "http://lp2.hm.com/hmprod?set=source[/environment/2016/8FZ_0205_037R.jpg]&call=url[file:/product/main]" };
 	Coat c2{ "PNK32", 32, "Pink", 159.95, 4, "http://lp2.hm.com/hmprod?set=source[/environment/2016/8EZ_0149_013R.jpg]&call=url[file:/product/main]" };
@@ -38,7 +39,8 @@ int main(int argc, char *argv[])
 	/*UI ui{ ctrl };
 	ui.run();*/
 
-	ProperTrenchCoatsGUI appgui{ ctrl };
+	//ProperTrenchCoatsGUI appgui{ ctrl };
+	TrenchCoatStore appgui{ ctrl };
 	appgui.show();
 	return a.exec();
 

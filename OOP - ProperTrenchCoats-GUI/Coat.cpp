@@ -19,6 +19,11 @@ Coat::Coat(const std::string & ID, const int & size, const std::string & colour,
 	this->link = link;
 }
 
+void Coat::addQuantity(const int & value)
+{
+	this->quantity += value;
+}
+
 void Coat::show()
 {
 	ShellExecuteA(NULL, NULL, "chrome.exe", this->getLink().c_str(), NULL, SW_SHOWMAXIMIZED);
