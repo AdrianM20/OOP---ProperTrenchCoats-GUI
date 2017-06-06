@@ -27,7 +27,7 @@ void Controller::updateCoatToRepository(const std::string & ID, const double & n
 
 void Controller::clearProducts()
 {
-	this->cart.clearProducts();
+	this->cart->clearProducts();
 }
 
 void Controller::addAllAvailableCoats()
@@ -35,7 +35,7 @@ void Controller::addAllAvailableCoats()
 	// C++11 method
 	//std::for_each(this->getAllCoats().begin(), this->getAllCoats().end(), this->cart.addAvailableCoats);
 	for (auto&& coat : this->getAllCoats()) {
-		this->cart.addAvailableCoats(coat);
+		this->cart->addAvailableCoats(coat);
 	}
 
 	/* Classic method
@@ -54,7 +54,7 @@ void Controller::addAllSizeCoats(const int & size)
 	std::vector<Coat> coats_dest;
 	std::copy_if(coats_source.begin(), coats_source.end(), std::back_inserter(coats_dest), [&](Coat c) {return c.getSize() == size; });
 	for (auto&& coat : coats_dest) {
-		this->cart.addAvailableCoats(coat);
+		this->cart->addAvailableCoats(coat);
 	}
 
 	// Classic method
@@ -68,30 +68,53 @@ void Controller::addAllSizeCoats(const int & size)
 
 void Controller::addCoatToCart(const Coat & c)
 {
-	this->cart.add(c);
+	if (this->cart == nullptr)
+		return;
+	this->cart->add(c);
 }
 
 void Controller::startShopping()
 {
-	this->cart.start();
+	if (this->cart == nullptr)
+		return;
+	this->cart->start();
 }
 
 void Controller::nextCoatShopping()
 {
-	this->cart.next();
+	if (this->cart == nullptr)
+		return;
+	this->cart->next();
 }
 
 void Controller::buyProducts()
 {
-	std::vector<Coat> coatsInCart = this->cart.getCartContents();
+	std::vector<Coat> coatsInCart = this->cart->getCartContents();
 	for (int i = 0; i < coatsInCart.size(); i++) {
 		this->repo.sellCoatByID(coatsInCart[i].getID());
 	}
 	this->eraseCart();
-	this->cart.clearProducts();
+	this->cart->clearProducts();
 }
 
 void Controller::eraseCart()
 {
-	this->cart.clearCart();
+	this->cart->clearCart();
+}
+
+void Controller::saveCart(const std::string & filename)
+{
+	if (this->cart == nullptr)
+		return;
+
+	this->cart->setFilename(filename);
+	this->cart->writeToFile();
+}
+
+void Controller::openCart()
+{
+	if (this->cart == nullptr)
+		return;
+
+	this->cart->displayCart();
 }

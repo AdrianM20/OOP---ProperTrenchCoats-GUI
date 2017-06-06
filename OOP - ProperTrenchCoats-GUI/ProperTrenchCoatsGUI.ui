@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Proper Trench Coats</string>
+   <string>Administration Window</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>

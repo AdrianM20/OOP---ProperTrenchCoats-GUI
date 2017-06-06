@@ -6,7 +6,7 @@ typedef Coat Product;
 
 class ShoppingCart
 {
-private:
+protected:
 	std::vector<Product> products; // products available coresponding to the size condition
 	std::vector<Product> cart; // shopping cart containing the chosen products
 	int current;

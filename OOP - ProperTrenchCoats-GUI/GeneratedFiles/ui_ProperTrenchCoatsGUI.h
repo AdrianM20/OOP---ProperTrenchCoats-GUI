@@ -172,7 +172,7 @@ public:
 
     void retranslateUi(QWidget *ProperTrenchCoatsGUI)
     {
-        ProperTrenchCoatsGUI->setWindowTitle(QApplication::translate("ProperTrenchCoatsGUI", "Proper Trench Coats", 0));
+        ProperTrenchCoatsGUI->setWindowTitle(QApplication::translate("ProperTrenchCoatsGUI", "Administration Window", 0));
         sortedButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Sorted", 0));
         shuffledButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Shuffled", 0));
         colourButton->setText(QApplication::translate("ProperTrenchCoatsGUI", "Highlight out of stock coats", 0));

@@ -125,6 +125,21 @@
     <ClCompile Include="TrenchCoatStore.cpp">
       <Filter>Source Files\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_CartGUI.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_CartGUI.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="CartGUI.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="FileCart.cpp">
+      <Filter>Source Files\controller</Filter>
+    </ClCompile>
+    <ClCompile Include="CSVCart.cpp">
+      <Filter>Source Files\controller</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="myclass.qrc">
@@ -152,6 +167,12 @@
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="TrenchCoatStore.h">
+      <Filter>Header Files\GUI</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CartGUI.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CartGUI.hpp">
       <Filter>Header Files\GUI</Filter>
     </CustomBuild>
   </ItemGroup>
@@ -197,6 +218,15 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_TrenchCoatStore.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_CartGUI.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileCart.h">
+      <Filter>Header Files\controller</Filter>
+    </ClInclude>
+    <ClInclude Include="CSVCart.h">
+      <Filter>Header Files\controller</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

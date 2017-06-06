@@ -7,7 +7,8 @@ NewCoat::NewCoat(Controller& cont, QWidget *mParent)
 	: parent(mParent), mCont(cont)
 {
 	ui.setupUi(this);
-	connect(ui.addButton, SIGNAL(clicked()), this, SLOT(add()));
+	//connect(ui.addButton, SIGNAL(clicked()), this, SLOT(add()));
+	connect(this->ui.addButton, &QPushButton::clicked, this, &NewCoat::add);
 }
 
 NewCoat::~NewCoat()
@@ -33,6 +34,15 @@ void NewCoat::add()
 		}
 		std::string err_msg = ss.str();
 		QMessageBox::warning(this, "Add Error", QString::fromStdString(err_msg), QMessageBox::Close);
+	}
+	catch (DuplicateCoatException dce) {
+		QMessageBox::warning(this, "Repository Exception", dce.what(), QMessageBox::Close);
+	}
+	catch (RepositoryException re) {
+		QMessageBox::warning(this, "Repository Exception", re.what(), QMessageBox::Close);
+	}
+	catch (FileException fe) {
+		QMessageBox::critical(this, "File Exception", fe.what(), QMessageBox::Close);
 	}
 	ProperTrenchCoatsGUI* mParent = dynamic_cast<ProperTrenchCoatsGUI*>(this->parent);
 

@@ -1,20 +1,21 @@
 #pragma once
 #include "Repository.h"
 #include "ShoppingCart.h"
+#include "FileCart.h"
 
 class Controller
 {
 private:
 	Repository repo;
-	ShoppingCart cart;
+	FileCart* cart;
 
 public:
 	// default constructor for the controller
-	Controller(const Repository& r) : repo(r) {}
+	Controller(const Repository& r, FileCart* c) : repo{ r }, cart{ c } {}
 
 	// return the repository and shopping cart of the controller
 	Repository getRepo() const { return repo; }
-	ShoppingCart getCart() const { return cart; }
+	ShoppingCart* getCart() const { return cart; }
 
 	/// ---------- Repository ---------- ///
 
@@ -89,4 +90,16 @@ public:
 		Clears shopping cart
 	*/
 	void eraseCart();
+
+	/*
+		Saves the cart
+		Throws: FileException - if the given file cannot be opened
+	*/
+	void saveCart(const std::string& filename);
+
+	/*
+		Opens the cart, with appropriate application.
+		Throws: FileException - if the given file cannot be opened
+	*/
+	void openCart();
 };

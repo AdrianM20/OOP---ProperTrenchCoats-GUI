@@ -17,8 +17,17 @@ private:
 	Ui::TrenchCoatStore ui;
 	Controller& ctrl;
 	void connectSignalsandSlots();
+	bool is_number(const std::string& s);
+	void clearFields();
 
 	void openAdminButtonHandler();
+	void startShoppingButtonHandler();
+	void addToCartButtonHandler();
+	void nextProductButtonHandler();
+	void saveCartToFileButtonHandler();
+	void openCartButtonHandler();
+
+	void setClientSize();
 };
 
 #endif // TRENCHCOATSTORE_H

@@ -32,11 +32,12 @@ void Repository::removeCoatByID(const std::string & ID)
 {
 	Coat checkCoat = findByID(ID);
 	if (checkCoat.getID().length() == 0)
-		throw "Coat does now exist. Nothig was deleted.";
+		throw RepositoryException("Coat does not exist. Nothing was deleted!");
 	if (checkCoat.getQuantity() > 0) {
-		char* ex;
-		ex = "Cannot delete this coat. There is at least one left in stock.";
-		throw ex;
+		stringstream stream;
+		stream << "Cannot delete this coat. There are " << checkCoat.getQuantity() << " left in stock.";
+		string ex = stream.str();
+		throw RepositoryException(ex);
 	}
 
 	for (int i = 0; i < this->coats.size(); i++)
@@ -66,7 +67,7 @@ void Repository::updateCoat(const std::string & ID, const Coat & c)
 {
 	Coat checkCoat = findByID(ID);
 	if (checkCoat.getID().length() == 0)
-		throw "Coat does not exist. No data was updated.";
+		throw RepositoryException("Coat does not exist. No data was updated.");
 	this->validator.validate(c);
 	int i;
 	for (i = 0; i < this->coats.size(); i++)

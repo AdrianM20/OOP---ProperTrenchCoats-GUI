@@ -1,12 +1,12 @@
 BEI52,52,Beige,399.980000,3,http://lp2.hm.com/hmprod?set=source[/environment/2016/8FZ_0205_037R.jpg]&call=url[file:/product/main]
-PNK32,40,Pink,159.950000,4,http://lp2.hm.com/hmprod?set=source[/environment/2016/8EZ_0149_013R.jpg]&call=url[file:/product/main]
+PNK32,32,Pink,159.950000,4,http://lp2.hm.com/hmprod?set=source[/environment/2016/8EZ_0149_013R.jpg]&call=url[file:/product/main]
 BLU38,38,Blue,199.990000,2,http://lp2.hm.com/hmprod?set=source[/environment/2017/8LZ_0056_026R.jpg]&call=url[file:/product/main]
 GRN40,40,Green,229.950000,0,http://lp2.hm.com/hmprod?set=source[/environment/2017/8MZ_0076_010R.jpg]&call=url[file:/product/main]
-PNK36,42,Pink,159.140000,0,http://lp2.hm.com/hmprod?set=source[/environment/2016/8EZ_0149_013R.jpg]&call=url[file:/product/main]
+PNK36,36,Pink,159.140000,0,http://lp2.hm.com/hmprod?set=source[/environment/2016/8EZ_0149_013R.jpg]&call=url[file:/product/main]
 BEI48,48,Beige,345.490000,3,http://lp2.hm.com/hmprod?set=source[/environment/2016/8FZ_0205_037R.jpg]&call=url[file:/product/main]
 SAT42,42,Satin,249.950000,5,http://lp2.hm.com/hmprod?set=source[/environment/2016/8FZ_0205_037R.jpg]&call=url[file:/product/main
 CAM46,46,Camel,599.980000,2,http://lp2.hm.com/hmprod?set=source[/environment/2016/7YM_0545_049R.jpg]&call=url[file:/product/main]
 CAM50,50,Camel,579.980000,0,http://lp2.hm.com/hmprod?set=source[/environment/2016/7YM_0545_049R.jpg]&call=url[file:/product/main]
 GRY38,38,Light-grey,499.980000,4,http://lp2.hm.com/hmprod?set=source[/environment/2017/8GZ_0311_003R.jpg]&call=url[file:/product/main]
 RED46,46,Red,398.980000,4,https://s-media-cache-ak0.pinimg.com/736x/7e/fc/79/7efc7948a499e5f0b404ee78deadcbc4.jpg
-BLK48,48,Black,419.990000,4,https://s-media-cache-ak0.pinimg.com/originals/62/6c/1f/626c1f0fbd5fbe165f4fc525e771a063.jpg
+BLK48,48,Black,419.990000,4,http://google.com

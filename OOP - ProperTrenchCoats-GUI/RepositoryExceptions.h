@@ -26,5 +26,6 @@ public:
 
 class DuplicateCoatException : public RepositoryException
 {
+public:
 	const char* what();
 };

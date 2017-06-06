@@ -6,6 +6,7 @@
 #include "UpdateCoat.h"
 #include <QMessageBox>
 #include <QDebug>
+#include <QSizePolicy>
 
 
 using namespace std;
@@ -107,8 +108,13 @@ int ProperTrenchCoatsGUI::getSelectedIndex()
 
 void ProperTrenchCoatsGUI::addButtonHandler()
 {
-	NewCoat *addcoatWindow = new NewCoat{ this->ctrl, this };
-	addcoatWindow->show();
+	try {
+		NewCoat *addcoatWindow = new NewCoat{ this->ctrl, this };
+		addcoatWindow->show();
+	}
+	catch (exception e) {
+		QMessageBox::warning(this, "Unknown Exception Thrown", e.what(), QMessageBox::Close);
+	}
 }
 
 void ProperTrenchCoatsGUI::deleteButtonHandler()
@@ -128,15 +134,24 @@ void ProperTrenchCoatsGUI::deleteButtonHandler()
 			qDebug() << "Coat wasn't deleted";
 	}
 	catch (const char* msg) {
-		//QMessageBox::StandardButton reply;
-		//reply = 
 		QMessageBox::warning(this, "Delete Error", msg, QMessageBox::Close);
+	}
+	catch (RepositoryException re) {
+		QMessageBox::warning(this, "Repository Exception", re.what(), QMessageBox::Close);
+	}
+	catch (FileException fe) {
+		QMessageBox::critical(this, "File Exception", fe.what(), QMessageBox::Close);
 	}
 	this->populateList();
 }
 
 void ProperTrenchCoatsGUI::updateButtonHandler()
 {
-	UpdateCoat *updateCoatWindow = new UpdateCoat{ this->ctrl,this };
-	updateCoatWindow->show();
+	try {
+		UpdateCoat *updateCoatWindow = new UpdateCoat{ this->ctrl,this };
+		updateCoatWindow->show();
+	}
+	catch (exception e) {
+		QMessageBox::warning(this, "Unknown Exception Thrown", e.what(), QMessageBox::Close);
+	}
 }
